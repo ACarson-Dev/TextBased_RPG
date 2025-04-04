@@ -1,6 +1,7 @@
 from character import Character, Mage, Warrior, Bowman, Swordsman
 
 
+
 def main():
 
     instance1 = Character('Hercules', 100, 10, 4, 1, 1)
