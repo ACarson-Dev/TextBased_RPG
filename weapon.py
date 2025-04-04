@@ -7,7 +7,3 @@ class Weapon:
         self.damage = damage
         self.weapon_type = weapon_type
 
-class Spears(Weapon):
-    def __init__(self, name="Spear", damage=15):
-        super().__init__(name, damage, "Spear")
-
