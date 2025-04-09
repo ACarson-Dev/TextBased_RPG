@@ -1,8 +1,10 @@
 from character import Character, Mage, Warrior, Bowman, Swordsman
+from enemy import Enemy, Goblin, Wolf, Bear, SwampMonster, PoisonousFrog, GiantSnake
+from area import Forest, Swamp, Mountains, Village
+from items.potions import Item, HealthPotion, ManaPotion
 
 
-
-def main():
+def main(): 
 
     instance1 = Character('Hercules', 100, 10, 4, 1, 1)
     instance1.player_info()  # Call the player_info method to display character attributes

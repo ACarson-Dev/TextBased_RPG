@@ -1,6 +1,7 @@
 # Carson
 # Purpose: Create a class for different types of areas in the game
 
+
 class Area:
     def __init__(self, name, description):
         self.name = name
@@ -26,5 +27,8 @@ class Mountains(Area):
         self.mountain_enemies = ["Mountain Troll", "Eagle", "Mountain Lion"]
         self.items = ["Major-Health Potion", "Major-Mana Potion", "Steel Shield"]
 
-class Castle(Area):
-    pass
+class Village(Area):
+    def __init__(self):
+        super().__init__("Village", "A peaceful village with friendly inhabitants.")
+        self.village_enemies = ["Thief", "Bandit"]
+        self.items = ["Health Potion", "Mana Potion", "Wooden Shield"]

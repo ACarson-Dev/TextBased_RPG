@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 # Object of type Character
 class Character:
     # Constructor method for character attributes
-    def __init__ (self, name, health, strength, speed, armor, level):
+    def __init__ (self, name, health, strength, speed, armor, level, experience, inventory, equipped_items):
         # Initialize the character's attributes meaning the name, health, strength, speed, armor, and level
         # are set to the values and passed in when the object is created
         self.player_name = name
@@ -15,6 +15,9 @@ class Character:
         self.player_speed = speed
         self.player_armor = armor
         self.player_level = level
+        self.experience = experience
+        self.inventory = inventory
+        self.equipped_items = equipped_items
 
 
     def player_info(self):
@@ -23,12 +26,14 @@ class Character:
         # Then prints the character's attributes: name, health, strength, speed, armor, and level.
 
         print("My name is", self.player_name)
-
         print('Health =', self.player_health)
         print('Strength =', self.player_strength)
         print('Speed =', self.player_speed)
         print('Armor =', self.player_armor)
         print('Level =', self.player_level)
+        print('Experience =', self.experience)
+        print('Inventory =', self.inventory)
+        print('Equipped Items =', self.equipped_items)
 
 
 
