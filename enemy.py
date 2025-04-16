@@ -1,3 +1,8 @@
+# Carson_FinalProject
+# Programmer: Alexander Carson
+# Email: acarson2@cnm.edu
+# Purpose: Create a class for enemies in the game incorporating how they attack and take damage
+
 class Enemy:
     def __init__(self, name, enemy_health, enemy_attack, enemy_defense, loot, enemy_level, exp_gained):
         self.enemy_name = name
@@ -9,9 +14,13 @@ class Enemy:
         self.exp_gained = exp_gained
 
     def take_damage(self, damage):
-        self.enemy_hp -= damage
+        # Reduce the character's health by the damage amount
+        self.enemy_hp -= max(0, damage - self.enemy_defense)
         if self.enemy_hp <= 0:
-            self.enemy_hp = 0
+            self.enemy_hp = 0  # Ensure health doesn't go below 0
+            print(f"{self.enemy_name} has died.") # Check if the character is dead
+        else:
+            return print(f"{self.enemy_name} has {self.enemy_hp} health remaining")
 
     def is_alive(self):
         return self.enemy_hp > 0

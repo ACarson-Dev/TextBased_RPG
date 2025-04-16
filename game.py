@@ -1,3 +1,8 @@
+#Carson_FianlProject
+#Programmer: Alexander Carson
+#Email: acarson2@cnm.edu
+#Purpose: Create a game in which the player can interact with the environment and fight enemies
+
 from character import Character, Mage, Warrior, Bowman, Swordsman
 from enemy import Enemy, Goblin, Wolf, Bear, SwampMonster, PoisonousFrog, GiantSnake
 from area import Forest, Swamp, Mountains, Village

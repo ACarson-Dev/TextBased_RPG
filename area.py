@@ -1,4 +1,6 @@
-# Carson
+# Carson_FinalProject
+# Programmer: Alexander Carson
+# Email: acarson2@cnm.edu
 # Purpose: Create a class for different types of areas in the game
 
 

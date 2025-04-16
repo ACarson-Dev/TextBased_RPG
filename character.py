@@ -1,12 +1,14 @@
 # Carson
-# Purpose: Create a class to represent a character in a game
+# Programmer: Alexander Carson
+# Email: acarson2@cnm.edu
+# Purpose: Create a class to represent a character in a game incorporating how they attack and take damage as well as
+# any special information for each character type
 
-from abc import ABC, abstractmethod
 
 # Object of type Character
 class Character:
     # Constructor method for character attributes
-    def __init__ (self, name, health, strength, speed, armor, level, experience, inventory, equipped_items):
+    def __init__ (self, name, health, strength, speed, armor, level):
         # Initialize the character's attributes meaning the name, health, strength, speed, armor, and level
         # are set to the values and passed in when the object is created
         self.player_name = name
@@ -15,26 +17,38 @@ class Character:
         self.player_speed = speed
         self.player_armor = armor
         self.player_level = level
-        self.experience = experience
-        self.inventory = inventory
-        self.equipped_items = equipped_items
 
 
-    def player_info(self):
+    def take_damage(self, damage):
+        # Reduce the character's health by the damage amount
+        self.player_health -= max(0, damage - self.player_armor)
+        if self.player_health <= 0:
+            self.player_health = 0  # Ensure health doesn't go below 0
+            print(f"{self.player_name} has died.") # Check if the character is dead
+        else:
+            return print(f"{self.player_name} has {self.player_health} health remaining")
 
-        # Display the character's information starting with the class type, defence, and any special attributes.
-        # Then prints the character's attributes: name, health, strength, speed, armor, and level.
+    def attack(self, enemy):
+        damage = (self.player_strength + (.25 * self.player_speed)) - enemy.enemy_defense
+        if damage > enemy.player_health:
+            print(f"{self.player_name} has killed a {enemy.enemy_name}")
+        else:
+            print(f"{self.player_name} has attacked {enemy.enemy_name} for {damage} damage")
 
-        print("My name is", self.player_name)
-        print('Health =', self.player_health)
-        print('Strength =', self.player_strength)
-        print('Speed =', self.player_speed)
-        print('Armor =', self.player_armor)
-        print('Level =', self.player_level)
-        print('Experience =', self.experience)
-        print('Inventory =', self.inventory)
-        print('Equipped Items =', self.equipped_items)
 
+
+
+
+def __str__(self):
+    # Return the character's information as a formatted string
+    return (
+        f"My name is {self.player_name}\n"
+        f"Health = {self.player_health}\n"
+        f"Strength = {self.player_strength}\n"
+        f"Speed = {self.player_speed}\n"
+        f"Armor = {self.player_armor}\n"
+        f"Level = {self.player_level}"
+    )
 
 
 '''
@@ -62,7 +76,6 @@ class Warrior(Character):
     def special_info(self):
         # Override the player_info method to include mana for Mage class
         print("Class Type: Bowman")
-        super().player_info()
         print("Defense =", self.defense, '\n')
 
 # Mage class inherits from Character class
@@ -74,7 +87,6 @@ class Mage(Character):
     def special_info(self):
         #Override the player_info method to include mana for Mage class
         print("Class Type: Mage")
-        super().player_info()
         print("Mana =", self.mana)
         print("Defense =", self.defense, '\n')
 
@@ -87,7 +99,6 @@ class Bowman(Character):
     def special_info(self):
         #Override the player_info method to include mana for Mage class
         print("Class Type: Bowman")
-        super().player_info()
         print("Arrows Qt. =", self.arrows)
         print("Defense =", self.defense, '\n')
 
@@ -100,25 +111,30 @@ class Swordsman(Character):
     def special_info(self):
         #Override the player_info method to include mana for Mage class
         print("Class Type: Bowman")
-        super().player_info()
         print("Arrows Qt. =", self.sword)
         print("Defense =", self.defense, '\n')
 
 def main():
     instance1 = Swordsman('Hercules', 100, 10, 4, 1, 1)
-    instance1.special_info()  # Call the player_info method to display character attributes
+    print(instance1)  # Call the player_info method to display character attributes
 
     instance2 = Mage('Merlin', 80, 5, 5, 2, 1)
-    instance2.special_info()  # Call the player_info method to display character attributes
+    print(instance2)  # Call the player_info method to display character attributes
 
     instance3 = Warrior('Achilles', 120, 15, 3, 6, 1)
-    instance3.special_info()  # Call the player_info method to display character attributes
+    print(instance3)  # Call the player_info method to display character attributes
 
     instance4 = Bowman('Robin Hood', 90, 8, 7, 4, 1)
-    instance4.special_info()  # Call the player_info method to display character attributes
+    print(instance4)  # Call the player_info method to display character attributes
 
     instance5 = Swordsman('Lancelot', 110, 12, 6, 5, 1)
-    instance5.special_info()  # Call the player_info method to display character attributes
+    print(instance5)  # Call the player_info method to display character attributes
 
 if __name__ == "__main__":
     main()  # Call the main function to start the program
+
+    """     
+            self.experience = experience
+            self.inventory = inventory
+            self.equipped_items = equipped_items
+    """
